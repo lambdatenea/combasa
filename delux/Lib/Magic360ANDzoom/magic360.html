@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../font-awesome-4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../chartist-js/dist/chartist.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/mycss.css">
+
+	<TITLE> Concesionario Delux</TITLE>
+	<link rel="icon" href="../img/logo/16x16.png" type="image/png" sizes="16x16">
+
+<link href="magiczoom/magiczoom.css" rel="stylesheet" type="text/css" media="screen"/>
+<script src="magiczoom/magiczoom.js" type="text/javascript"></script>
+
+<link href="magic360/magic360.css" rel="stylesheet" type="text/css" media="screen"/>
+<script src="magic360/magic360.js" type="text/javascript"></script>
+<script src="jQuery/jquery.1.12.4.js"></script>
+
+<style type="text/css">
+    body, td {
+        font-family: 'Helvetica Neue', Helvetica, 'Lucida Grande', Tahoma, Arial, Verdana, sans-serif;
+        line-height: 1.5em;
+        -webkit-text-rendering: geometricPrecision;
+        text-rendering: geometricPrecision;
+    }
+    h1 { font-size:1.5em; font-weight:normal; color:#555; }
+    h2 { font-size:1.3em; font-weight:normal; color:#555; }
+    h2.caption { margin: 2.5em 0 0;}
+    h3 { font-size:1.1em; font-weight: normal; color:#555; }
+    h3.pad { margin: 2em 0 1em; }
+    h4 { font-size: 1em; font-weight:normal; color:#555; }
+    p.pad { margin-top: 1.5em; }
+    a { outline: none; }
+
+    .preview {
+        position: relative;
+		margin: 0 auto;
+    }
+
+    .app-figure {
+        width: 80% !important;
+        margin: 0px auto;
+        border: 0px solid red;
+        padding: 20px;
+        position: relative;
+        text-align: center;
+    }
+    .selectors { margin-top: 10px; 
+				 text-align: center;}
+    .selectors .mz-thumb img { max-width: 56px; }
+	
+    @media (min-width: 0px) {
+        .preview { width: 100%; float: none; }
+    }
+
+    @media (min-width: 1024px) {
+        .preview { width: calc(100% - 340px); }
+        .wizard-settings { top: 0; min-height: 100%; }
+        .wizard-settings .inner { margin-top: 60px; }
+        .wizard-settings .footer { position: absolute; bottom: 0; left: 0; }
+        .wizard-settings .settings-controls {
+            position: fixed;
+            top: 0; right: 0;
+            width: 340px;
+            padding: 10px 0 0;
+            text-align: center;
+            background-color: inherit;
+        }
+    }
+    @media screen and (max-width: 1024px) {
+        .api-controls button, .api-controls button:active, .api-controls button:focus {
+            width: 70px;
+        }
+    }
+    @media screen and (max-width: 1023px) {
+        .app-figure { width: 98% !important; margin: 50px auto; padding: 0; }
+        .app-code-sample { display: none; }
+        .wizard-settings { width: 100%; }
+    }
+    @media screen and (max-width: 600px) {
+        .mz-thumb img { max-width: 39px; }
+    }
+    @media screen and (max-width: 560px) {
+        .api-controls .sep { content: ''; display: table; }
+    }
+    @media screen and (min-width: 1600px) {
+        .preview { padding: 10px 160px; }
+    }
+</style>
+
+
+<script>	
+	$(document).ready(function(){
+		$("#on360").click(function(){
+			$("#zoom-fig").fadeOut();
+			$("#coche360").fadeIn("slow");
+		});
+	}); 
+	
+	$(document).ready(function(){
+		$(".onZoom").click(function(){
+			$("#zoom-fig").fadeIn("slow");
+			$("#coche360").fadeOut();
+		});
+	}); 
+</script>
+
+</head>
+<body>
+
+
+		<!-- ************************* -->
+		<!-- NAVBAR DE LA PAGINA -->
+		<!-- ************************* -->
+		<div class="container-fluid nopadding">
+		<header id="header" class="col-lg-12 nopadding">
+
+			<nav class="navbar navbar-default nopadding">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="../../index.html"><i class="fa fa-automobile"></i> Delux Car</a>
+			    </div>
+
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li class="active"><a href="../../index.html">Inicio <span class="sr-only">(current)</span></a></li>
+			        <li><a href="../../View/coches/catalogo.php">Catalogo</a></li>
+			      </ul>
+
+			      <ul class="nav navbar-nav navbar-right">
+				    <form class="navbar-form navbar-left">
+				    	<div class="form-group">
+					      <input class="form-control" type="text" placeholder="Search">
+					      <button class="btn btn-warning" type="submit">Search</button>				    		
+				    	</div>
+				    </form>
+
+			        <li><a href="../../View/panel_de_control.php">Configuracion</a></li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Iniciar Sesion <span class="caret"></span></a>
+			          <ul class="dropdown-menu">
+			            <li><a href="../../View/clientes/login.php"><i class="fa fa-user fa-fw"></i> Iniciar</a></li>
+			            <li><a href="../../View/clientes/add_cliente.php"><i class="fa fa-user-plus fa-fw"></i> Registrarse</a></li>
+			            <li role="separator" class="divider"></li>
+			            <li><a href="../../Controller/clientes/logout_cliente.php"><i class="fa fa-remove fa-fw"></i> Cerrar</a></li>
+			          </ul>
+			        </li>
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+
+		</header>
+		</div>
+		<!-- ************************* -->
+		<!-- // NAVBAR DE LA PAGINA -->
+		<!-- ************************* -->
+
+		<!-- ************************* -->
+		<!--  CUERPO DE LA PAGINA -->
+		<!-- ************************* -->
+
+		<div class="col-lg-12 row nopadding jumbotron" style="margin-top: -1.5em;">
+		<h1 class="text-center"> <small class="text-success" style="opacity: 0.8;"> Vista 360 and Zoom </small></h1>
+		</div>
+
+		<div class="row nopadding">
+			<div class="col-lg-12">
+				<div class="preview col">
+					<table>
+						<tr>
+							<td>
+								<div class="app-figure" id="coche360" style="display:none;" >
+									<a id="spin-1" class="Magic360" data-options="rows: 1; columns: 12"
+										href="images/360/armani-bag-large-01-01.jpg"
+									><img src="images/360/armani-bag-large-01-01.jpg"></a>
+								</div>
+								
+								<div class="app-figure" id="zoom-fig">
+									<a id="Zoom-1" class="MagicZoom" title="Show your product in stunning detail with Magic Zoom."
+										href="images/jeans-1-z.jpg"
+									>
+										<img src="images/jeans-1-z.jpg?scale.height=400" alt=""/>
+									</a>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>	
+								 <div class="selectors">
+								   <a
+										data-zoom-id="Zoom-1"
+										href="images/jeans-1-z.jpg"
+										data-image="images/jeans-1-z.jpg?scale.height=400"
+										class="onZoom"
+									>
+										<img srcset="images/jeans-1-z.jpg?scale.width=112 2x" src="images/jeans-1-z.jpg?scale.width=56"/>
+									</a>
+								   <a
+										data-zoom-id="Zoom-1"
+										href="images/jeans-2-z.jpg"
+										data-image="images/jeans-2-z.jpg?scale.height=400"
+										class="onZoom"
+									>
+										<img srcset="images/jeans-2-z.jpg?scale.width=112 2x" src="images/jeans-2-z.jpg?scale.width=56"/>
+									</a>
+								   <a
+										data-zoom-id="Zoom-1"
+										href="images/jeans-3-z.jpg"
+										data-image="images/jeans-3-z.jpg?scale.height=400"
+										class="onZoom"
+									>
+										<img srcset="images/jeans-3-z.jpg?scale.width=112 2x" src="images/jeans-3-z.jpg?scale.width=56"/>
+									</a>
+								   <a
+										data-zoom-id="Zoom-1"
+										href="images/jeans-4-z.jpg"
+										data-image="images/jeans-4-z.jpg?scale.height=400"
+										class="onZoom"
+									>
+										<img srcset="images/jeans-4-z.jpg?scale.width=112 2x" src="images/jeans-4-z.jpg?scale.width=56"/>
+									</a>
+								   <a
+										data-zoom-id="Zoom-1"
+										href="images/jeans-5-z.jpg"
+										data-image="images/jeans-5-z.jpg?scale.height=400"
+										class="onZoom"
+									>
+										<img srcset="images/jeans-5-z.jpg?scale.width=112 2x" src="images/jeans-5-z.jpg?scale.width=56"/>
+									</a>
+								   <a
+										data-zoom-id="Zoom-1"
+										href="images/jeans-6-z.jpg"
+										data-image="images/jeans-6-z.jpg?scale.height=400"
+										class="onZoom"
+									>
+										<img srcset="images/jeans-6-z.jpg?scale.width=112 2x" src="images/jeans-6-z.jpg?scale.width=56"/>
+									</a>
+								   <a
+										data-zoom-id="Zoom-1"
+										href="images/jeans-7-z.jpg"
+										data-image="images/jeans-7-z.jpg?scale.height=400"
+										class="onZoom"
+									>
+										<img srcset="images/jeans-7-z.jpg?scale.width=112 2x" src="images/jeans-7-z.jpg?scale.width=56"/>
+									</a>
+								   <a
+										data-zoom-id="Zoom-1"
+										id="on360"
+										href="images/fallo360.jpg"
+										data-image="images/fallo360.jpg?scale.height=400"
+									>
+										<img src="https://magictoolbox.sirv.com/images/magic360/ipod-thumb-3.jpg?scale.width=56"/>
+									</a>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<div class ="caption">
+					 <h3 class="text-info"><strong>Desde</strong> 95.000 €</h3>
+					 <p class="text-justify"> <i class="fa fa-file-text-o"></i> <strong>Descripción:</strong> Lorem ipsum  . . . </p>
+					 <p> <i class="fa fa-check-square-o"></i> <strong>Marca:</strong> Ferrari </p>
+					 <p> <span class="glyphicon glyphicon-search" aria-hidden="true"></span> <strong>Modelo:</strong> Spider 430 </p>
+					 <p> <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span> <strong>Tipo:</strong> Deportivo </p>
+					 <p> <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <strong>Puertas:</strong> 3 </p>
+					 <p> <i class="fa fa-dashboard"></i> <strong>CC:</strong> 430 </p>
+					 <p> <span class="glyphicon glyphicon-tint" aria-hidden="true"></span> <strong>Combustible:</strong> Gasolina </p>
+					 <p>
+						<button type="button" class="btn btn-custom" onclick='.$boton.'><i class="fa fa-cart-plus"></i> Añadir al Carro</button>
+						<a href="#" class="btn btn-default" data-toggle="modal" data-target="#myModal"><i class="fa fa-share-alt"></i> Compartir</a>
+					 </p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- ************************* -->
+		<!-- // CUERPO DE LA PAGINA -->
+		<!-- ************************* -->
+
+		<!-- ************************* -->
+		<!-- PIE DE LA PAGINA -->
+		<!-- ************************* -->
+
+		<div class="container-fluid margin-top-2">
+			<footer class="footer row col-lg-12 nopadding">
+				<p class="text-muted text-center">Delux Car &copy; Copyright 2016. <a target="_blank" href="../../View/aviso_legal.php">Aviso Legal</a></p>
+			</footer>
+		</div>
+	
+		<!-- ************************* -->
+		<!-- // PIE DE LA PAGINA -->
+		<!-- ************************* -->
+	
+		<!-- JAVASCRIPT -->
+		<!-- Libreria basica de JQuery y Bootstrap -->
+    	 <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+		 <script src="../bootstrap/js/bootstrap.min.js"></script>
+		<!-- Libreria basica de Chartist-js -->
+		 <script src="../chartist-js/dist/chartist.min.js"></script>
+		 <script src="../js/myjs.js"></script>
+
+
+		<!-- CDN para Magic360 pretify -->
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.min.js"></script>
+		<script>try { prettyPrint(); } catch(e) {}</script>
+	</BODY>
+</HTML>
